@@ -8,9 +8,26 @@
     <th>Date Created</th>
     <th>Date Modified</th>
   </thead>
-  <tbody>
+  <tbody *ngFor="let task of tasks">
     <tr>
-      <app-task-item></app-task-item>
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.status }}</td>
+      <td>{{
+        task.dueDate.toLocaleDateString() + " " + task.dueDate.toLocaleTimeString(
+          [], {hour: '2-digit', minute: '2-digit'}
+        ) }}
+      </td>
+      <td>{{
+        task.createDate.toLocaleDateString() + " " + task.createDate.toLocaleTimeString(
+          [], {hour: '2-digit', minute: '2-digit'}
+        ) }}
+      </td>
+      <td>{{
+        task.modDate.toLocaleDateString() + " " + task.modDate.toLocaleTimeString(
+          [], {hour: '2-digit', minute: '2-digit'}
+        ) }}
+      </td>
     </tr>
   </tbody>
 </table>
