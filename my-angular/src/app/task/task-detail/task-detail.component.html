@@ -4,6 +4,48 @@
     <label for="">Title</label>
     <input type="text" class="form-control" />
     <label for="">Description</label>
-    <textarea class="form-control"></textarea>
+    <textarea class="form-control"></textarea><br />
+    <div class="form-group">
+      <div class="col-sm-6">
+        <label class="col-sm-6 control-label">Priority:</label>
+        <select class="col-sm-6">
+          <option>Noraml</option>
+          <option>Major</option>
+          <option>Critical</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label class="col-sm-5 control-label">Status:</label>
+        <select class="col-sm-7">
+          <option>ToDo</option>
+          <option>In Progress</option>
+          <option>Done</option>
+        </select>
+      </div>
+    </div><br />
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Due Date:</label>
+        <input type="date" class="col-sm-8" />
+    </div><br />
+    <div class="form-group">
+      <label class="col-sm-5 control-label">Parent:</label>
+      <select class="col-sm-7">
+        <option>Task 1</option>
+        <option>Task 2</option>
+        <option>Task 3</option>
+      </select>
+    </div><br /><br />
+    <div class="container-fuild">
+      <button
+        type="button"
+        class="btn btn-default pull-left">
+        Delete
+      </button>
+      <button
+        type="button"
+        class="btn btn-default pull-right">
+        Cancel
+      </button>
+    </div>
   </div>
 </form>
