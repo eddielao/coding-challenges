@@ -1,3 +1,7 @@
+.navbar {
+  border: 0;
+}
+
 .navbar-header{
   padding-right: 10px;
   width:100%;
