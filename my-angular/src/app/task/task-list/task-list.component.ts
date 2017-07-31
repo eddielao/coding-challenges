@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Task } from '../task.model';
 
@@ -9,16 +9,11 @@ import { Task } from '../task.model';
 })
 
 export class TaskListComponent implements OnInit{
-  tasks: Task[] = [
-    new Task('Task 1',
-            'Create header component',
-            'Major',
-            'In Progress',
-            new Date("July 31, 2017 08:00"),
-            null)
-  ];
+  @Input() tasks: Task[];
 
   constructor() {}
 
   ngOnInit() {}
+
+  displayDetail() {}
 }

@@ -9,8 +9,8 @@
     <th>Date Modified</th>
   </thead>
   <tbody *ngFor="let task of tasks">
-    <tr>
-      <td>{{ task.title }}</td>
+    <tr (click)="displayDetail()">
+      <td (click)="displayDetail()">{{ task.title }}</td>
       <td>{{ task.description }}</td>
       <td>{{ task.status }}</td>
       <td>{{
