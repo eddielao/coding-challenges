@@ -8,6 +8,8 @@ import { Task } from './task.model';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
+  displayDetail: boolean;
+
   tasks: Task[] = [
     new Task('Task 1',
             'Create header component',
@@ -23,9 +25,28 @@ export class TaskComponent implements OnInit {
             null)
   ];
 
-  constructor() { }
+  constructor() {
+    this.displayDetail = false;
+  }
 
   ngOnInit() {
   }
 
+  CreateTask() {
+    this.displayDetail = false;
+    this.tasks.push(new Task(`Task ${ this.tasks.length+1 }`,
+            'description',
+            'priority',
+            'status',
+            new Date(),
+            null));
+  }
+
+  DisplayDetail() {
+    this.displayDetail = true;
+  }
+
+  HideDetail() {
+    this.displayDetail = false;
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output }
+  from '@angular/core';
 
 import { Task } from '../task.model';
 
@@ -10,10 +11,13 @@ import { Task } from '../task.model';
 
 export class TaskListComponent implements OnInit{
   @Input() tasks: Task[];
+  @Output() displayDetail= new EventEmitter();
 
   constructor() {}
 
   ngOnInit() {}
 
-  displayDetail() {}
+  DisplayDetail() {
+    this.displayDetail.emit(null);
+  }
 }
