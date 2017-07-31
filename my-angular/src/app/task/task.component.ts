@@ -12,15 +12,33 @@ export class TaskComponent implements OnInit {
 
   tasks: Task[] = [
     new Task('Task 1',
-            'Create header component',
+            'Design components per wireframe',
+            'Critical',
+            'Done',
+            new Date("July 31, 2017 08:00"),
+            null),
+    new Task('Task 2',
+            'Create app component',
+            'Major',
+            'Done',
+            new Date("July 31, 2017 08:00"),
+            null),
+    new Task('Task 3',
+            'Create task component',
+            'Major',
+            'Done',
+            new Date("July 31, 2017 08:00"),
+            null),
+    new Task('Task 4',
+            'Break task component into sub-components',
             'Major',
             'In Progress',
             new Date("July 31, 2017 08:00"),
             null),
-    new Task('Task 2',
-            'Create tasklist component',
+    new Task('Task 5',
+            'Create task detail component',
             'Major',
-            'In Progress',
+            'Done',
             new Date("July 31, 2017 08:00"),
             null)
   ];
@@ -38,8 +56,12 @@ export class TaskComponent implements OnInit {
             'description',
             'priority',
             'status',
-            new Date(),
+            new Date("July 31, 2017 08:00"),
             null));
+  }
+
+  DeleteDetail(i: number) {
+    this.tasks = this.tasks.slice(0, i).concat(this.tasks.slice(i+1, this.tasks.length));
   }
 
   DisplayDetail() {

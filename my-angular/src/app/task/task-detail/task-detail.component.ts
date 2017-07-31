@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output }
+import { Component, EventEmitter, Input, OnInit, Output }
   from '@angular/core';
+
+import { Task } from '../task.model';
 
 @Component({
   selector: 'app-task-detail',
@@ -7,10 +9,18 @@ import { Component, EventEmitter, OnInit, Output }
   styleUrls: ['./task-detail.component.css']
 })
 export class TaskDetailComponent implements OnInit {
+  @Input() taskIndex: number;
+  @Input() task: Task;
   @Output() hideDetail = new EventEmitter();
+  @Output() deleteDetail = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  DeleteDetail() {
+    this.deleteDetail.emit(this.taskIndex);
   }
 
   HideDetail() {

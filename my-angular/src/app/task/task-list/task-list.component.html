@@ -7,10 +7,10 @@
     <th>Date Created</th>
     <th>Date Modified</th>
   </thead>
-  <tbody *ngFor="let task of tasks">
-    <tr (click)="DisplayDetail()">
+  <tbody *ngFor="let task of tasks; let i=index">
+    <tr (click)="DisplayDetail(task, i)">
       <td (click)="displayDetail()">{{ task.title }}</td>
-      <td>{{ task.description }}</td>
+      <td>{{ task.priority }}</td>
       <td>{{ task.status }}</td>
       <td>{{
         task.dueDate.toLocaleDateString() + " " + task.dueDate.toLocaleTimeString(

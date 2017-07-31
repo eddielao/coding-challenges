@@ -2,43 +2,57 @@
 <form>
   <div class="form-group">
     <label for="">Title</label>
-    <input type="text" class="form-control" />
-    <label for="">Description</label>
-    <textarea class="form-control"></textarea><br />
+    <input type="text" class="form-control" value="{{ task.title }}" />
+    <label for="">Priority</label>
+    <textarea
+      class="form-control"
+      value="{{ task.description }}">
+    </textarea><br />
     <div class="form-group">
       <div class="col-sm-6">
         <label class="col-sm-6 control-label">Priority:</label>
         <select class="col-sm-6">
-          <option>Noraml</option>
-          <option>Major</option>
-          <option>Critical</option>
+          <option
+            selected="{{task.priority}}==='Normal'">
+            Noraml
+          </option>
+          <option selected="{{task.priority}}==='Major'">
+            Major
+          </option>
+          <option
+            selected="{{task.priority}}==='Critical'">
+            Critical
+          </option>
         </select>
       </div>
       <div class="col-sm-6">
         <label class="col-sm-5 control-label">Status:</label>
         <select class="col-sm-7">
-          <option>ToDo</option>
-          <option>In Progress</option>
-          <option>Done</option>
+          <option selected="task.status==='ToDo'">ToDo</option>
+          <option selected="task.status==='In Progress'">
+            In Progress
+          </option>
+          <option selected="task.status==='Done'">Done</option>
         </select>
       </div>
     </div><br />
     <div class="form-group">
         <label class="col-sm-4 control-label">Due Date:</label>
-        <input type="date" class="col-sm-8" />
+        <input type="date" class="col-sm-8"
+          value="2017-07-31" />
     </div><br />
     <div class="form-group">
       <label class="col-sm-5 control-label">Parent:</label>
       <select class="col-sm-7">
         <option>Task 1</option>
         <option>Task 2</option>
-        <option>Task 3</option>
       </select>
     </div><br /><br />
     <div class="container-fuild">
       <button
         type="button"
-        class="btn btn-danger pull-left">
+        class="btn btn-danger pull-left"
+        disabled>
         Delete
       </button>
       <button

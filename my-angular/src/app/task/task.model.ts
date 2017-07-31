@@ -19,4 +19,10 @@ export class Task {
     this.modDate = new Date();
     this.parent = parent;
   }
+
+  GetDueDate() {
+    return this.dueDate.getFullYear() + "-" +
+          this.dueDate.getMonth() + "-" +
+          this.dueDate.getDate();
+  }
 }

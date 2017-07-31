@@ -12,12 +12,16 @@ import { Task } from '../task.model';
 export class TaskListComponent implements OnInit{
   @Input() tasks: Task[];
   @Output() displayDetail= new EventEmitter();
+  task: Task;
+  taskIndex: number;
 
   constructor() {}
 
   ngOnInit() {}
 
-  DisplayDetail() {
+  DisplayDetail(t: Task, i: number) {
+    this.taskIndex = i;
+    this.task = t;
     this.displayDetail.emit(null);
   }
 }
