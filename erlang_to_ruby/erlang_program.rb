@@ -1,22 +1,27 @@
 class ErlangProgram
 
     def self.format_weight(list_of_objects)
-
+        converted_list = convert_list_to_k(list_of_objects)
     end
 
     private
 
     def self.convert_list_to_k(list_of_objects)
-        for i in 0...list_of_objects.count
-            # if check_for_name(list_of_objects[i])
-
-        end
-        while count < list_of_objects.length do
-            input = list_of_objects[count]
-            if count == 0 and input.is_a?(String)
+        dup = deep_dup(list_of_objects)
+        FACTOR = 0.45359237
+        for i in 0...dup.count
+            h = dup[i]
+            if check_for_name(h)
+                get_weight(h) = get_weight(h) / FACTOR
             end
-            count += 1
         end
+        dup
+    end
+
+    def self.print_weight(hash)
+        name = hash.keys[0]
+        weight = get_weight(hash)
+        printf("%-15s %f c\n", name, weight)
     end
 
     def self.check_for_name(object)
@@ -29,12 +34,16 @@ class ErlangProgram
         end
     end
 
-    def deep_dup(hash)
+    def self.deep_dup(hash)
         return hash if !hash.is_a?(Hash)
         dup = {}
         hash.each |k,v| do
             dup[k] = deep_dup(v)
         end
         dup
+    end
+
+    def self.get_weight(hash)
+        hash[hash.keys[0]]
     end
 end
