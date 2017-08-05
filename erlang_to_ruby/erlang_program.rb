@@ -1,3 +1,5 @@
+require 'byebug'
+
 class ErlangProgram
     $FACTOR = 0.45359237
 
@@ -11,6 +13,7 @@ class ErlangProgram
     private
 
     def self.convert_list_to_k(list_of_objects)
+        debugger
         dup = deep_dup(list_of_objects)
         for i in 0...dup.count
             h = dup[i]
@@ -29,7 +32,9 @@ class ErlangProgram
     end
 
     def self.check_for_name(object)
-        if !object.keys[0].is_a?(String)
+        if !object.is_a?(Hash)
+            raise 'Input must be hash'
+        elsif !object.keys[0].is_a?(String)
             raise 'Each object must have a name'
         elsif object.values[0].keys[0] != 'l'
             raise "Use 'l' to specify result in lb"
