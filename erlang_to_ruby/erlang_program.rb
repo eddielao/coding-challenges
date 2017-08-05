@@ -13,7 +13,7 @@ class ErlangProgram
     private
 
     def self.convert_list_to_k(list_of_objects)
-        debugger
+# debugger
         dup = deep_dup(list_of_objects)
         for i in 0...dup.count
             h = dup[i]
@@ -53,6 +53,6 @@ class ErlangProgram
     end
 
     def self.get_weight(hash)
-        hash[hash.keys[0]]
+        hash[hash.keys[0]][hash[hash.keys[0]].keys[0]]
     end
 end
