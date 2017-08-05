@@ -1,18 +1,22 @@
 class ErlangProgram
+    $FACTOR = 0.45359237
 
     def self.format_weight(list_of_objects)
         converted_list = convert_list_to_k(list_of_objects)
+        for i in 0...converted_list.count
+            print_weight(converted_list[i])
+        end
     end
 
     private
 
     def self.convert_list_to_k(list_of_objects)
         dup = deep_dup(list_of_objects)
-        FACTOR = 0.45359237
         for i in 0...dup.count
             h = dup[i]
             if check_for_name(h)
-                get_weight(h) = get_weight(h) / FACTOR
+                h[h.keys[0]][h[h.keys[0]].keys[0]] =
+                    h[h.keys[0]][h[h.keys[0]].keys[0]] / $FACTOR
             end
         end
         dup
@@ -37,9 +41,9 @@ class ErlangProgram
     def self.deep_dup(hash)
         return hash if !hash.is_a?(Hash)
         dup = {}
-        hash.each |k,v| do
+        hash.each {|k,v|
             dup[k] = deep_dup(v)
-        end
+        }
         dup
     end
 
