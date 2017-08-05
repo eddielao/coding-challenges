@@ -28,4 +28,13 @@ class ErlangProgram
             return true
         end
     end
+
+    def deep_dup(hash)
+        return hash if !hash.is_a?(Hash)
+        dup = {}
+        hash.each |k,v| do
+            dup[k] = deep_dup(v)
+        end
+        dup
+    end
 end
