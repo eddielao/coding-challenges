@@ -3,6 +3,7 @@ require 'byebug'
 class ErlangProgram
     $FACTOR = 0.45359237
 
+    # Only API
     def self.format_weight(list_of_objects)
         converted_list = convert_list_to_k(list_of_objects)
         for i in 0...converted_list.count
@@ -12,7 +13,7 @@ class ErlangProgram
     end
 
     private
-
+    # Rest of methods are kept private per original Erlang program
     def self.convert_list_to_k(list_of_objects)
         dup = deep_dup(list_of_objects)
         for i in 0...dup.count
