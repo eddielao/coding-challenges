@@ -8,6 +8,7 @@ class ErlangProgram
         for i in 0...converted_list.count
             print_weight(converted_list[i])
         end
+        min_and_max(converted_list)
     end
 
     private
@@ -24,8 +25,30 @@ class ErlangProgram
         dup
     end
 
+    def self.min_and_max(list)
+        min_idx = 0;
+        min = get_weight(list[0])
+        max_idx = 0;
+        max = min;
+        for i in 1...list.count
+            w = get_weight(list[i])
+            if w > max
+                max = w
+                max_idx = i
+            elsif w < min
+                min = w
+                min_idx = i
+            end
+        end
+
+        max_name = list[max_idx].keys[0]
+        min_name = list[min_idx].keys[0]
+        printf("Max weight was %f c in %s\n", max, max_name)
+        printf("Min weight was %f c in %s", min, min_name)
+    end
+
     def self.print_weight(hash)
-        debugger
+        # debugger
         name = hash.keys[0]
         weight = get_weight(hash)
         printf("%-15s %f c\n", name, weight)
